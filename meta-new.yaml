@@ -498,15 +498,6 @@ tun:
 
 
 proxy-providers:
-  机场订阅1:
-    type: http
-    path: ./Proxy-Providers/机场订阅1.yaml
-    url: https://cors.buildtest.site/https://api.dler.io/sub?target=clash&url=https://sub.paasmi.com/subscribe/264119/41xoCCbn8GNF
-    interval: 3600
-    health-check:
-      enable: true
-      url: http://clients3.google.com/generate_204
-      interval: 600
 
   免费订阅1:
     type: http
@@ -537,7 +528,7 @@ proxy-groups:
     type: select
     use:
     - CloudFlareWarp
-    - 机场订阅1
+#    - 机场订阅1
     - 免费订阅1
 
     proxies:
@@ -555,7 +546,7 @@ proxy-groups:
 #    exclude-type: 'ss'# Tidak mendukung ekspresi reguler, dipisahkan dengan '|', dikecualikan menurut jenis node
     use:
 #    - CloudFlareWarp
-    - 机场订阅1
+#    - 机场订阅1
     - 免费订阅1
 
     url: https://www.gstatic.com/generate_204
@@ -570,7 +561,7 @@ proxy-groups:
     type: select
     use:
     - CloudFlareWarp
-    - 机场订阅1
+#    - 机场订阅1
     - 免费订阅1
     
     proxies:
