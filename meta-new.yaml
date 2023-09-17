@@ -508,7 +508,7 @@ proxy-providers:
     interval: 3600
     health-check:
       enable: true
-      url: http://clients3.google.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 600
 
 
