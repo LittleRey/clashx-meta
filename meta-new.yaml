@@ -18,6 +18,8 @@ geodata-mode: true
 tcp-concurrent: true
 enable-process: true
 
+#  TCP keep alive interval
+keep-alive-interval: 15
 
 
 #  find-process-mode has 3 values:always, strict, off
