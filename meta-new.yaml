@@ -535,8 +535,8 @@ proxy-groups:
 
     proxies:
 
-    - DIRECT
     - Fallback
+    - DIRECT
 
 
 
@@ -553,7 +553,7 @@ proxy-groups:
 
     url: https://www.gstatic.com/generate_204
     interval: 120
-    lazy: true
+#    lazy: true
     
 
 
