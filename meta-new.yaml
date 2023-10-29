@@ -292,7 +292,7 @@ dns:
 #    - 'udp://1.1.1.1:53#非CN-IP-代理'
 
 #    - 'tls://1.1.1.1:853'
-    - 'https://1.1.1.1/dns-query#h3=true'
+    - 'https://1.1.1.1/dns-query#h3=true#DIRECT'
 
 #google
     - 'tls://8.8.8.8:853'
@@ -489,14 +489,14 @@ tun:
 #  auto detect interface, conflict with `interface-name`
 #  mtu: 9000# 最大传输单元
 #  strict_route: true# 将所有连接路由到tun来防止泄漏，但你的设备将无法其他设备被访问
-  inet4_route_address:
+#  inet4_route_address:
 #  启用 auto_route 时使用自定义路由而不是默认路由
-    - 0.0.0.0/1
-    - 128.0.0.0/1
-  inet6_route_address:
+#    - 0.0.0.0/1
+#    - 128.0.0.0/1
+#  inet6_route_address:
 #  启用 auto_route 时使用自定义路由而不是默认路由
-    - '::/1'
-    - '8000::/1'
+#    - '::/1'
+#    - '8000::/1'
 
 
 proxy-providers:
@@ -614,7 +614,7 @@ rules:
  - RULE-SET,Direct,DIRECT
  - RULE-SET,Proxy,非CN-IP-代理
 ## block udp/quic YouTube
- - AND,((NETWORK,udp),(DST-PORT,443),(GEOSITE,youtube)),REJECT
+# - AND,((NETWORK,udp),(DST-PORT,443),(GEOSITE,youtube)),REJECT
 # - AND,((NETWORK,udp),(OR,((DST-PORT,443/80),(GEOSITE,youtube)))),REJECT
 # - AND,((NETWORK,udp),(GEOSITE,youtube)),REJECT
 ###
@@ -624,6 +624,7 @@ rules:
  - GEOIP,TW,非CN-IP-代理
  - GEOIP,MO,非CN-IP-代理
  - GEOSITE,gfw,非CN-IP-代理
- - AND,((NOT,((GEOIP,HK))),(NOT,((GEOIP,MO))),(NOT,((GEOIP,TW))),(GEOIP,CN)),CN-IP-直连
- - AND,((GEOIP,CN),(GEOSITE,cn)),CN-IP-直连
+# - AND,((NOT,((GEOIP,HK))),(NOT,((GEOIP,MO))),(NOT,((GEOIP,TW))),(GEOIP,CN)),CN-IP-直连
+# - AND,((GEOIP,CN),(GEOSITE,cn)),CN-IP-直连
+ - GEOIP,CN,CN-IP-直连
  - MATCH,非CN-IP-代理
